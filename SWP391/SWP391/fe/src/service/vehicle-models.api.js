@@ -1,0 +1,28 @@
+import api from "../config/axios";
+
+const API = "/vehicles";
+
+// 📌 Lấy danh sách xe
+export const fetchVehicles = async () => {
+  return await api.get(API);
+};
+
+// 📌 Thêm xe mới
+export const postVehicle = async (vehicle) => {
+  return await api.post(API, vehicle);
+};
+
+// 📌 Cập nhật xe (dựa vào vehicle.id)
+export const putVehicle = async (vehicle) => {
+  return await api.put(`${API}/${vehicle.id}`, vehicle);
+};
+
+// 📌 Xóa xe theo id
+export const removeVehicle = async (id) => {
+  return await api.delete(`${API}/${id}`);
+};
+
+// 📌 Lấy chi tiết xe theo id
+export const getVehicleById = async (id) => {
+  return await api.get(`${API}/${id}`);
+};
